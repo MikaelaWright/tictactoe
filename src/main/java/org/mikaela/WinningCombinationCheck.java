@@ -1,6 +1,6 @@
 package org.mikaela;
 
-public class WinnnigCombinationCheck {
+public class WinningCombinationCheck {
     static boolean checkDiagonalL(char[][] board, char letter) {
         if (board[0][0] == letter && board[1][1] == letter && board[2][2] == letter) {
             return true;

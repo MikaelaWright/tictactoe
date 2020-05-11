@@ -14,6 +14,18 @@ public class App {
             Board.drawBoard(board);
             playerTurn = updateBoard(board, playerTurn, scanner);
             gameOver = detectEndgame(board);
+            if (gameOver) {
+                System.out.println("Play again? (y/n): ");
+                String choice = scanner.next();
+                if (choice.equals("y")) {
+                    gameOver = false;
+                    Board.emptyBoard(board);
+                    playerTurn = "p1";
+                } else {
+                    System.out.println("Thanks for playing.");
+                    gameOver = true;
+                }
+            }
         }
 
     }
@@ -79,19 +91,19 @@ public class App {
 
     private static boolean checkPlayerWins(char[][] board, String label, char letter) {
 
-        if (WinnnigCombinationCheck.checkColumns(board, letter)) {
+        if (WinningCombinationCheck.checkColumns(board, letter)) {
             System.out.println(label);
             return true;
         }
-        if (WinnnigCombinationCheck.checkRows(board, letter)) {
+        if (WinningCombinationCheck.checkRows(board, letter)) {
             System.out.println(label);
             return true;
         }
-        if (WinnnigCombinationCheck.checkDiagonalL(board, letter)) {
+        if (WinningCombinationCheck.checkDiagonalL(board, letter)) {
             System.out.println(label);
             return true;
         }
-        if (WinnnigCombinationCheck.checkDiagonalR(board, letter)) {
+        if (WinningCombinationCheck.checkDiagonalR(board, letter)) {
             System.out.println(label);
             return true;
         }
